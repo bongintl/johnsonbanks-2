@@ -1,0 +1,36 @@
+html {
+    font-family: $font-stack;
+    font-weight:400;
+	font-size: 16px;
+	line-height: $base-line-height;
+	-webkit-font-smoothing: antialiased;
+}
+
+body {
+    -moz-font-feature-settings: "liga", "kern";
+    -moz-font-feature-settings:"liga=1, kern=1";
+    -ms-font-feature-settings:"liga", "kern";
+    -o-font-feature-settings:"liga", "kern";
+    -webkit-font-feature-settings:"liga", "kern";
+    font-feature-settings: "liga", "kern";
+}
+
+h1 {
+    
+    font-size: $headline-size * .5;
+    line-height: $headline-line-height;
+    font-weight: 900;
+    
+    @include tablet {
+        font-size: $headline-size * .75;
+    }
+    
+    @include desktop {
+        font-size: $headline-size * .75;
+    }
+
+}
+
+h3 {
+    text-align: left;
+}

@@ -1,0 +1,110 @@
+// TEXT ON HOVER
+
+.route_home,
+.route_work,
+.route_project,
+.no-touch.route_search{
+    
+    &.touch {
+    
+        .tile__title,
+        .tile__caption-top,
+        .tile__caption-bottom {
+            
+            display: none;
+            
+        }
+    
+    }
+    
+    .tile__title,
+    .tile__caption-top,
+    .tile__caption-bottom {
+        
+        opacity: 0;
+        
+    }
+    
+    &.no-touch .tile:hover {
+        
+        .tile__title,
+        .tile__caption-top,
+        .tile__caption-bottom {
+            
+            opacity: 1;
+            
+        }
+        
+        .tile__thumbnail {
+            
+            opacity: 0;
+            
+        }
+        
+    }
+    
+}
+
+// IMAGE ON HOVER
+
+.route_thoughts,
+.route_news,
+.route_about {
+    
+    &.touch {
+    
+        .tile__title,
+        .tile__caption-top,
+        .tile__caption-bottom {
+            
+            display: none;
+            
+        }
+    
+    }
+    
+    .tile__thumbnail {
+        
+        opacity: 0;
+        
+    }
+    
+    &.no-touch .tile:hover {
+        
+        .tile__title,
+        .tile__caption-top,
+        .tile__caption-bottom {
+            
+            opacity: 0;
+            
+        }
+        
+        .tile__thumbnail {
+            
+            opacity: 1;
+            
+        }
+        
+    }
+    
+}
+
+.touch.route_search {
+    
+    .tile__thumbnail {
+        
+        display: none;
+        
+    }
+    
+    @include phone-only {
+        
+        .tile_row-1 .tile__title {
+            
+            font-size: .75rem;
+            
+        }
+        
+    }
+    
+}

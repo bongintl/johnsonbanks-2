@@ -1,0 +1,395 @@
+.nav{
+    
+    position: fixed;
+    width: 100%;
+    left: 0;
+    z-index: 100;
+    font-weight: bold;
+    
+    top: -$phone-nav-height;
+    
+    @include tablet {
+        top: -$nav-height;
+    }
+    
+    &_transition {
+        pointer-events: none;
+    }
+    
+    &__bar {
+        
+        position: absolute;
+        width: 100%;
+        top: 0;
+        padding: $nav-pad;
+        
+        &_top {
+            
+            background: black;
+            color: white;
+            
+            a {
+                padding-bottom: 2px;
+                border-bottom-width: 1px;
+                border-bottom-style: solid;
+                border-bottom-color: black;
+                transition: border-bottom-color .2s;
+                
+                &:hover {
+                    border-bottom-color: white;
+                }
+            }
+            
+            height: $phone-nav-height;
+            
+            @include tablet {
+                height: $nav-height;
+            }
+        
+        }
+        
+        &_bottom {
+            
+            display: none;
+            
+            background: white;
+            
+            @include tablet {
+                display: block;
+            }
+            
+            top: 0;
+            height: $nav-height;
+            //background: white;
+            overflow: hidden;
+            
+            .main-menu{
+                left: auto;
+            }
+            
+        }
+        
+    }
+    
+    &__item {
+        
+        position: absolute;
+        top: $nav-pad-y;
+        left: 0;
+        display: block;
+        transition: opacity .2s .2s;
+        
+        .nav_transition & {
+            transition: opacity .2s;
+            opacity: 0;
+        }
+        
+        &_project-title {
+            font-weight: normal;
+            left: 0;
+            
+            width: $project-width-phone / 2;
+            @include tablet {
+                width: $project-width-tablet / 2;
+            }
+            @include desktop {
+                width: $project-width-desktop / 2;
+            }
+            @include desktop-large {
+                width: $project-width-desktop-large / 2;
+            }
+            
+            text-align: right;
+            padding-right: .5em;
+            
+            span {
+                position: absolute;
+                right: 0;
+                top: 0;
+                transition: opacity .2s;
+            }
+            
+        }
+        
+        &_project-section {
+            left: $project-width-phone / 2;
+            width: $project-width-phone / 2;
+            @include tablet {
+                left: $project-width-tablet / 2;
+                width: $project-width-tablet / 2;
+            }
+            @include desktop {
+                left: $project-width-desktop / 2;
+                width: $project-width-desktop / 2;
+            }
+            @include desktop-large {
+                left: $project-width-desktop-large / 2;
+                width: $project-width-desktop-large / 2;
+            }
+            
+            li {
+                
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                
+            }
+
+            margin-left: .5em;
+        }
+        
+        &_dropdown{
+            
+            cursor: pointer;
+            transition: transform 0.4s, opacity .2s .2s;
+            
+            .nav_transition & {
+                transition: transform 0.4s, opacity .2s;
+            }
+            
+            li {
+                
+                font-weight: normal;
+                opacity: 0;
+                transition: opacity 0.2s;
+                
+                &.selected{
+                    
+                    transition: opacity 0.3s 0.1s;
+                    opacity: 1;
+                    font-weight: bold;
+                    
+                }
+                
+            }
+            
+            &_open li {
+                opacity: 1;
+                transition: opacity 0.2s 0.2s;
+            }
+            
+            &_no-transition {
+                transition: none;
+            }
+            
+        }
+        
+        &_project-filters{
+            
+            width: 100%;
+            
+            & > ul {
+                top: 0;
+                
+                &:first-child {
+                    left: auto;
+                    right: 50%;
+                    margin-right: .5em;
+                    text-align: right;
+                }
+                
+                &:last-child {
+                    left: 50%;
+                    margin-left: .5em;
+                }
+                
+            }
+            
+        }
+        
+        &_about-section {
+            
+            text-align: center;
+            left: 50%;
+            width: 16rem;
+            margin-left: -8rem;
+            
+            @include tablet {
+                left: 37.5%;
+            }
+            
+            @include desktop {
+                left: 33%;
+            }
+            
+        }
+        
+    }
+    
+    input {
+        width: 120px;
+        @include tablet-landscape {
+            width: 180px;
+        }
+    }
+    
+    &__signup {
+        
+        border-bottom: 1px solid transparent;
+        transition: border-bottom-color .3s;
+        width: 100%;
+        font-weight: bold;
+        
+        @include tablet {
+            width: 100%;
+        }
+        
+        &:focus{
+            font-weight: normal;
+            border-bottom: 1px solid white;
+        }
+        
+        @keyframes border-flash {
+            
+            from {
+                border-bottom-color: rgba(255,255,255,1);
+            }
+            
+            to {
+                border-bottom-color: rgba(255,255,255,0);
+            }
+            
+        }
+        
+        &:disabled {
+            animation: border-flash 1s linear infinite alternate;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: white;
+        }
+
+    }
+    
+    &__search {
+        
+        border-bottom: 1px solid white;
+        color: white;
+        font-weight: bold;
+        
+        &::placeholder{
+            color: white;
+            transition: color .5s;
+        }
+        
+        &:focus::placeholder{
+            color: rgba(255,255,255,0.3);
+        }
+        
+    }
+    
+    &__toggle {
+        
+        position: absolute;
+        left: $nav-pad-x;
+        top: $phone-nav-height + $nav-pad-y;
+        z-index: 150;
+        color: black;
+        
+        transition:
+            opacity $content-transition-in-duration,
+            color 0.2s,
+            transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1.000);
+            
+        cursor: pointer;
+        
+        @include tablet {
+            
+            top: $nav-height + $nav-pad-y;
+            
+            .nav_open.nav_bottom-open & {
+                color: black !important;
+            }
+            
+            .route_search & {
+                opacity: 0;
+                pointer-events: none;
+            }
+            
+        }
+
+    }
+    
+}
+
+.main-menu{
+    
+    width: 100%;
+    position: relative;
+    
+    transition: opacity .2s;
+    
+    @include phone-only{
+        
+        margin-top: .5em;
+
+        &__link:first-child {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin-left: 0;
+        }
+
+        &__link {
+            margin-left: 50%;
+            padding-bottom: $menu-item-mobile-padding;
+        }
+        
+    }
+    
+    @include tablet {
+    
+        ul, li{
+            display: inline-block;
+        }
+    
+    }
+    
+    &__link{
+        
+        @include tablet {
+            
+            margin-right: .75em;
+        
+            &:last-child {
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin-right: 0;
+            }
+            
+        }
+        @include tablet-landscape {
+            margin-right: 2em;
+        }
+        
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: transparent;
+        transition: border-bottom-color 0.5s;
+        
+        &_active-white{
+            border-bottom-color: white;
+        }
+        
+        &_active-black{
+            border-bottom-color: black;
+        }
+        
+    }
+    
+    &:not(:hover) {
+        
+        @each $route in $route-names {
+            
+            .route_#{$route} & .main-menu__link_active-#{$route} a {
+                
+                border-bottom: 1px solid white;
+                
+            }
+            
+        }
+        
+    }
+    
+}

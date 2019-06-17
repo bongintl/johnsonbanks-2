@@ -1,0 +1,210 @@
+$title-large: 2.5rem;
+$title-medium: 1.65rem;
+$title-small: 1rem;
+
+@mixin tile-row ( $row, $entryType: false ) {
+    
+    @if ( $entryType ) {
+        
+        &_row-#{ $row }.tile_entry-#{ $entryType } { @content; }
+        
+    } @else {
+        
+        &_row-#{ $row } { @content; }
+        
+    }
+    
+}
+
+@mixin full-tile ( $row, $titleSize, $captions: true ) {
+    
+    @include tile-row ( $row ) {
+        
+        .tile__title {
+            
+            display: block;
+            font-size: $titleSize;
+            
+        }
+        
+        @if $captions {
+        
+            .tile__caption-top,
+            .tile__caption-bottom {
+                
+                display: block;
+                
+            }
+        
+        }
+    
+    }
+
+}
+
+@mixin center-caption ( $row, $which: 'top', $entryType: false ) {
+    
+    @include tile-row ( $row, $entryType ) {
+    
+        .tile__caption-#{ $which } {
+            
+            display: block;
+            top: 50%;
+            bottom: auto;
+            transform: translateY(-50%);
+            white-space: normal;
+            overflow: visible;
+            height: auto;
+            line-height: 1.5;
+            
+        }
+    
+    }
+    
+}
+
+.route_project .tile {
+    
+    @include tablet-only {
+        
+        @include center-caption( 1 );
+        
+    }
+    
+    @include tablet-landscape-only {
+        
+        @include full-tile( 1, $title-small, false );
+        
+    }
+    
+    @include desktop-only {
+        
+        @include full-tile( 1, $title-medium );
+        
+    }
+    
+    @include desktop-large {
+        
+        @include full-tile( 1, $title-medium );
+        
+        @include center-caption( 2 );
+        
+    }
+    
+}
+
+.route_thoughts,
+.route_news {
+    
+    .tile {
+    
+        @include tablet-only {
+        
+            @include center-caption( 1 );
+            
+        }
+        
+        @include tablet-landscape-only {
+            
+            @include full-tile( 1, $title-small );
+            
+        }
+        
+        @include desktop-only {
+            
+            @include full-tile( 1, $title-medium );
+            
+            @include full-tile( 2, $title-small );
+            
+        }
+        
+        @include desktop-large {
+            
+            @include full-tile( 1, $title-medium );
+            
+            @include full-tile( 2, $title-small );
+            
+            // @include center-caption( 3 );
+            
+        }
+        
+    }
+    
+}
+
+.route_about .tile {
+        
+    @include tablet-landscape-only {
+        
+        @include full-tile( 1, $title-small, false );
+        
+    }
+    
+    @include desktop {
+        
+        @include full-tile( 1, $title-medium, false );
+        
+        @include full-tile( 2, $title-small, false );
+        
+    }
+    
+}
+
+.route_home,
+.route_work {
+    
+    .tile {
+        
+        @mixin home-center-caption ( $row ) {
+            
+            @include center-caption( $row, 'top', 'work' );
+            
+            @include center-caption( $row, 'bottom', 'thoughts' );
+            @include center-caption( $row, 'bottom', 'news' );
+            @include center-caption( $row, 'bottom', 'about' );
+            
+        }
+        
+        @include phone-only {
+            
+            @include full-tile( 1, $title-small, false );
+            
+        }
+        
+        @include tablet-only {
+            
+            @include full-tile( 1, $title-medium );
+                
+            @include home-center-caption( 2 );
+                
+        }
+        
+        @include tablet-landscape-only {
+            
+            @include full-tile( 1, $title-medium );
+            
+            @include full-tile( 2, $title-small );
+            
+            @include home-center-caption( 3 );
+            
+        }
+        
+        @include desktop {
+            
+            @include full-tile( 1, $title-large );
+            
+            @include full-tile( 2, $title-medium );
+            
+            @include home-center-caption( 3 );
+            
+        }
+        
+    }
+    
+}
+
+.route_search .tile {
+    
+    @include full-tile( 1, $title-small );
+    
+}

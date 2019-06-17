@@ -1,0 +1,39 @@
+$font-stack: "Marr Sans Web", sans-serif;
+$base-line-height: 1.5;
+
+$headline-size: 85/16 * 1rem;
+$headline-line-height: 1.25;
+$headline-cap-height: $headline-size * 2/3;
+
+$subhead-size: $headline-size/3;
+
+$pull-quote-size: $headline-size * .5555;
+$pull-quote-line-height: 51/50;
+
+$nav-pad-x: 1.5em;
+$nav-pad-y: 1em;
+$nav-pad: $nav-pad-y $nav-pad-x;
+$menu-item-mobile-padding: .75em;
+$nav-height: 3.5em;
+$phone-nav-height: 18em;//($base-line-height * 1em + $menu-item-mobile-padding) * 5 + $nav-pad-y;
+
+$project-width-phone: 100%;
+$project-width-tablet: 5/6 * 100%;
+$project-width-desktop: 3/4 * 100%;
+$project-width-desktop-large: 2/3 * 100%;
+
+$feed-width: 50%;
+
+$max-strips: 5;
+
+$arrow-size: 0.5em;
+
+$grid-transition-duration: .3s;
+$tile-transition-duration: .5s;
+$content-transition-out-duration: .2s;
+$content-transition-in-duration: .2s;
+$nav-transition-duration: .6s;
+
+$feed-headline-size: 56px;
+
+$route-names: 'home', 'work', 'project', 'thoughts', 'news', 'about', 'contact', 'signup';

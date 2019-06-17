@@ -1,0 +1,91 @@
+.static__inner {
+    
+    margin: 0 (100% * 1/12) $headline-size (100% * 1/12);
+    
+    padding-top: 1em;
+    
+    @include tablet {
+        width: 100% * 10/12;
+        // max-width: 960px;
+        //top: 20px;
+        //left: 50%;
+        //transform: translateX(-50%);
+    }
+
+    
+    form {
+        padding-top: 1rem;
+    }
+    
+    a {
+        border-bottom: 1px solid black;
+        
+        &:hover {
+            border-bottom: 0;
+        }
+    }
+    
+    .map {
+        height: 96vh;
+        
+        @include tablet {
+            margin-right: 2em;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+        
+    }
+    
+}
+
+.static__column {
+    
+    margin-bottom: $headline-size * .5;
+    
+    @include tablet {
+        width: 50%;
+        float: left;
+        
+    }
+    
+    p {
+        @include tablet-landscape {
+            font-size: 1.25rem;
+        }
+    }
+    
+    
+    p, input {
+        margin-bottom: 1em
+        
+        
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        text-align: left;
+        margin-top: 4rem;
+        margin-bottom: 1rem;
+    }
+    
+    h1 {
+    
+        @include tablet {
+            font-size: $headline-size * .5;
+        }
+        
+        @include desktop {
+            font-size: $headline-size * .5;
+        }
+
+    }        
+    
+    input {
+        border-bottom: 1px dashed black;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+}
