@@ -7,7 +7,7 @@ var path = require('path');
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 
-var sass = require('gulp-sass');
+var sass = require('gulp-sass')(require('sass'));
 var autoprefixer = require('gulp-autoprefixer');
 
 var browserify = require('browserify');

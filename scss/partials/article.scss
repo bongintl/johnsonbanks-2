@@ -482,6 +482,10 @@ $width-inv: 1 / $width;
     height: 0;
     margin: $headline-cap-height * .75 auto;
     position: relative;
+
+    &_has-caption {
+      margin: $headline-cap-height * .75 auto $headline-cap-height * .5 auto;
+    }
     
     iframe {
         position: absolute;

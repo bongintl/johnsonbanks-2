@@ -4,7 +4,8 @@
   "description": "",
   "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass scss/style.scss style.css"
   },
   "author": "",
   "license": "ISC",
@@ -14,7 +15,6 @@
     "browserify": "^14.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
-    "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.4.1",
     "gulp-streamify": "^1.0.2",
     "gulp-uglify": "^2.0.1",
@@ -29,11 +29,13 @@
     "eases": "^1.0.8",
     "es6-shim": "^0.35.3",
     "events": "^1.1.1",
+    "gulp-sass": "^5.1.0",
     "has-touch": "^1.0.1",
     "hyperscript": "^2.0.2",
     "lodash": "^4.17.4",
     "page": "^1.7.1",
     "query-string": "^4.3.2",
+    "sass": "^1.56.1",
     "tinycolor2": "^1.4.1",
     "xhr": "^2.4.0"
   }
